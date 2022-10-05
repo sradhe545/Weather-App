@@ -1,0 +1,96 @@
+body{
+    background-image: url("https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-repeat:no-repeat;
+    background-attachment: fixed;  
+    background-size: 100%;
+}
+#container{
+    display: flex;
+}
+#im{
+    height: 50px;
+    width: 50px;
+    margin-left: 15px;
+}
+#p1,#p2,#p3,#p4{
+    color: #999;
+font: 11px ProximaNovaA-Regular;
+margin-left: 15px;
+margin-bottom: 10px;
+}
+#idiv{
+    height:auto;
+    width: 200px;
+    border: 1px solid white;
+    background-color: rgb(54, 50, 50);
+
+}
+#container{
+    margin-top: 150px;
+    margin-left: 15%;
+}
+h1{
+    color:rgb(255, 255, 255);
+    margin-left: 15%;
+}
+#city{
+    margin-left: 15%;
+    height: 40px;
+    width: 20%;
+    border: none;
+   outline:none;
+/* background-color: aqua; */
+border-bottom-left-radius: 5px;
+border-top-left-radius: 5px;
+border-bottom-right-radius: none;
+border-top-right-radius: none
+
+}
+#but{
+padding: 10px 20px 10px 20px;
+font-size: 15px;
+background-color: white;
+border-bottom-right-radius: 5px;
+border-top-right-radius: 5px;
+border-top-left-radius: none;
+border-bottom-left-radius:none;
+border: none;
+margin-left: -5px;
+height: 41px;
+}
+#citydis{
+font-size: 12px;
+font-weight: 500;
+line-height: 1.29;
+white-space: nowrap;
+color: white;
+margin-left: 15%;
+}
+#cityname{
+font-size: 22px;
+font-weight: bold;
+}
+#design{
+align-items: center;
+background: rgba(0,0,0,.2);
+border-radius: 6px;
+color: #fff;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+padding: 8px 12px;
+text-decoration: none;
+width: 150px;
+height: 150px;
+margin-left: 15%;
+margin-top: 20px;
+}
+.mapouter
+          {
+          position:relative;
+          text-align:right;
+          height:500px;
+          width:600px;
+          margin-left: 25%;
+          margin-top: 40px;
+        }

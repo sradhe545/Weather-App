@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="weather.css">
+</head>
+   
+
+<body>
+    <h1>My Weather</h1>
+    <input id="city" type="text" placeholder="Enter City">
+    <button id="but">Search Weather</button>
+    <div id="design">
+        <div id="citydis"></div>
+    </div>
+    
+
+
+    <div id="container"></div>
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe width="600" height="500" id="gmap_canvas" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <br>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector("#but").addEventListener("click", myf)
+    async function myf(){
+           var x=document.querySelector("#city").value
+          var url=`https://api.openweathermap.org/data/2.5/forecast?q=${x}&appid=bc710e433be83ebd0b55934e8d07293e&units=metric`
+            console.log(url)
+             try{
+            let res=await fetch(url)
+        let weather=await res.json()
+        myfunction(weather)
+        console.log(weather)
+        } 
+        catch(error) {
+            console.log("error")
+        }
+        }
+
+         
+    function myfunction(weather)
+    {
+        var c=document.querySelector("#container");
+        c.innerHTML=null
+        var q=document.querySelector("#citydis")
+        q.innerHTML=null
+        var n=document.createElement("p")
+       
+        n.innerText=weather.city.name
+        n.setAttribute("id","cityname")
+        citydis.append(n)
+        for(var i=0;i<weather.list.length;i=i+8)
+        {
+            if(weather.list[i].main.temp>37)
+            {
+                var image=document.createElement("img")
+                image.setAttribute("src","https://cdn-icons-png.flaticon.com/512/1146/1146869.png")
+                image.setAttribute("id","im")
+            }
+            else 
+            {
+                var image=document.createElement("img")
+                image.setAttribute("src","https://cdn-icons-png.flaticon.com/512/2675/2675848.png")
+                image.setAttribute("id","im")
+            }
+           
+            var p1=document.createElement("p")
+            p1.innerText= "Temperature :"+weather.list[i].main.temp+"°C"
+            p1.setAttribute("id","p1")
+            var p2=document.createElement("p")
+            p2.innerText= "Date:"+new Date()
+            // weather.list[i].dt_txt
+            p2.setAttribute("id","p2")
+            var p3=document.createElement("p")
+            p3.innerText= "Max. Temp. :"+weather.list[i].main.temp_max+"°C"
+            p3.setAttribute("id","p3")
+            var p4=document.createElement("p")
+            p4.innerText= "Min. Temp. :"+weather.list[i].main.temp_min+"°C"
+            p4.setAttribute("id","p4")
+            var idiv=document.createElement("div")
+            idiv.setAttribute("id","idiv")
+            idiv.append(p2,image,p1,p3,p4)
+            c.append(idiv)
+            let iframe =document.querySelector("#gmap_canvas")
+        iframe.src=`https://maps.google.com/maps?q=${weather.city.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>
